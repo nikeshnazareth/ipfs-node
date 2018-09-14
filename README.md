@@ -1,21 +1,12 @@
-# Seed Project: Express Swagger
+# IPFS REST INTERFACE
 
 ## Overview
 
-This branch creates a basic express server featuring:
-* gzip compression
-* server-side sessions with:
-   * A random 256-bit secret
-   * An expiration of 30 mins since last use
-* logging to the `log` directory (cleared with each build)
-* a default `index.html`
-* an initial route (`/dummy`)
-* a `404` error handler for undefined routes
-* a `500` error handler for unhandled errors in defined routes
+I am currently running an IPFS node on an Amazon EC2 instance.
 
-It serves the Swagger documentation at `/api`
+This project is a web server running on the same instance to provide a REST interface that adds json to the IPFS node (pinned)
 
-## Usage
+## Build and Deploy
 
 1. Run the `initialise.sh` script
 1. Use the npm script commands to build/serve the server
@@ -24,3 +15,7 @@ It serves the Swagger documentation at `/api`
 
 1. Add new routes to `server.js` appropriate
 1. Update the `api/api.yaml` file to match
+
+## Client usage
+
+The swagger documentation is available at `/api`
