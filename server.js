@@ -10,7 +10,7 @@ const morgan = require('morgan');
 const path = require('path');
 const swaggerUI = require('swagger-ui-express');
 
-const dummy = require('./dummy/module');
+const addIPFS = require('./addIPFS/module');
 const api = require('./api/module');
 
 /*** SET UP SESSION ***/
@@ -47,11 +47,7 @@ app.use(morgan('combined', {stream: accessLogStream}));
 
 /*** ROUTES ***/
 
-app.get('/', (req, res, next) => {
-    res.redirect('/index.html');
-});
-app.use('/dummy', dummy.route);
-app.use(express.static(path.join(__dirname, 'static')));
+app.use('/add', addIPFS.route);
 
 /*** API Documentation ***/
 

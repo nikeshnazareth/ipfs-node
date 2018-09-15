@@ -27,6 +27,8 @@ packages=(
   'secure-random'
   'swagger-ui-express'
   'yamljs'
+  'fs'
+  'request'
 )
 for p in ${packages[*]}; do
   npm install --save $p@latest
