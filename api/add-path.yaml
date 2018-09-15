@@ -1,0 +1,21 @@
+/add:
+  post:
+    summary: Add IPFS record
+    tags:
+      - json
+    description: Adds and pins the record to the IPFS node
+    parameters:
+      - name: record
+        in: body
+        required: true
+        description: The record to add to IPFS
+    responses:
+      200:
+        description: The IPFS hash of the record
+        properties:
+          hash:
+            type: string
+      400:
+        description: Missing record
+      500:
+        description: Unexpected server error
