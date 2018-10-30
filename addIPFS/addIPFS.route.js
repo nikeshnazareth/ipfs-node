@@ -10,7 +10,7 @@ const request = require('request');
 const router = express.Router();
 const wrapper = require('../response-wrapper');
 
-const dataDir = '/home/ec2-user/records';
+const dataDir = '/home/ec2-user/tmp';
 
 router.post('/', (req, res, next) => {
     if (!req.body.record)
@@ -30,9 +30,12 @@ router.post('/', (req, res, next) => {
             if (error)
                 return next({status: 500, message: 'Unable to add the record to the local IPFS node'});
 
+            // delete the file
+            fs.unlink(filename);
+
             const hash = JSON.parse(added)['Hash'];
-            res.json(wrapper.wrap(hash))
-        });
+            res.json(wrapper.wrap(hash));
+       });
     });
 });
 
