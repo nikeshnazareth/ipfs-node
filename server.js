@@ -48,6 +48,7 @@ app.use(morgan('combined', {stream: accessLogStream}));
 /*** CORS ***/
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', 'https://www.verifiable-voting.nikeshnazareth.com');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
     next();
 });
 
