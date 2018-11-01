@@ -18,6 +18,6 @@ This project is a web server running on the same instance to provide a REST inte
 
 ## Client usage
 
-The Amazon instance is available at http://ipfs.nikeshnazareth.com:3000
+The Amazon instance is available at https://ipfs.nikeshnazareth.com
 
 The swagger documentation is available at `/api`
