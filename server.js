@@ -45,6 +45,12 @@ const accessLogStream = FileStreamRotator.getStream({
 });
 app.use(morgan('combined', {stream: accessLogStream}));
 
+/*** CORS ***/
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', 'https://www.verifiable-voting.nikeshnazareth.com');
+    next();
+});
+
 /*** ROUTES ***/
 
 app.use(express.static('static'));
