@@ -4,7 +4,7 @@ info:
   description: An API to add json objects to the local IPFS node
   version: 1.0.0
 
-host: ipfs.nikeshnazareth.com:3000
+host: ipfs.nikeshnazareth.com
 schemes:
   - http
 
