@@ -1,13 +1,20 @@
 'use strict';
 
 const app = require('./server');
-const http = require('http');
+const https = require('https');
+const fs = require('fs');
 
 /*** START THE SERVER ***/
 
 const port = process.env.PORT || 3000;
 app.set('port', port);
-const server = http.createServer(app);
+
+const options = {
+    cert: fs.readFileSync('./sslcert/fullchain.pem'),
+    key: fs.readFileSync('./sslcert/privkey.pem')
+};
+
+const server = https.createServer(options, app);
 server.listen(port);
 
 /*** HANDLE EVENTS ***/
