@@ -47,6 +47,7 @@ app.use(morgan('combined', {stream: accessLogStream}));
 
 /*** ROUTES ***/
 
+app.use(express.static('static'));
 app.use('/add', addIPFS.route);
 
 /*** API Documentation ***/
@@ -56,7 +57,7 @@ app.use('/api', swaggerUI.serve, swaggerUI.setup(api.json));
 /*** ERROR HANDLING ***/
 
 app.use((req, res, next) => {
-   return next({status: 404, message: 'Resource not found'});
+    return next({status: 404, message: 'Resource not found'});
 });
 
 app.use((err, req, res, next) => {
